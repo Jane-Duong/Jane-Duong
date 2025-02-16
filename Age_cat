@@ -1,0 +1,20 @@
+// This is my practice code for a program to calculate a cat's age. 
+// Learn C++ 
+#include <iostream> 
+using namespace std; 
+int main () { 
+
+string cat_name; 
+int cat_age; 
+int early_years, later_years, human_years; 
+
+cout << " Enter your cat name: "; 
+cin >> cat_name; 
+
+early_years = 15; 
+later_years = (cat_age + 9) * 4; 
+human years = early_years + later_years; 
+
+cout << "My name is " << cat_name << "! Meow Meow, I am " << human_years << " years old in human years.\n; 
+return 0;
+} 
