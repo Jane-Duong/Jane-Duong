@@ -1,0 +1,95 @@
+#include <iostream> 
+using namespace std;
+int main() {
+	cout << "=======================\n";
+	cout << "🎁🎉 WELCOME TO THE ULTIMATE VIETNAM QUIZ! 🎉🎁 ";
+	cout << "=======================\n";
+	cout << "🏆 Do you think you know Vietnam?\n";
+	cout << "🧐 Are you a true Vietnam expert or just a pho lover?\n";
+	cout << "Let's put your knowledge to the test!\n\n";
+	cout << "📜 RULES OF THE GAME 📜\n";
+	cout << "1️⃣ I will ask you some fun and tricky questions about Vietnam.\n";
+	cout << "2️⃣ If you answer correctly, you get a point. 🎯\n";
+	cout << "3️⃣ If you answer incorrectly... well, you'll have to try again! 😈\n";
+	cout << "4️⃣ No cheating! (I can't stop you, but I trust you... maybe 🤨)\n";
+	cout << "5️⃣ Your final score will determine if you're a *Vietnam Master* or if you need to book a flight and learn more! ✈️\n\n";
+	cout << "🎮 READY? PRESS ENTER TO BEGIN...\n";
+	cin.get();
+
+	int answer1, answer2, answer3;
+	int score = 0;
+
+	while (true) {
+		cout << "Q1) What is the capital of Vietnam?\n";
+		cout << "1) Ho Chi Minh\n";
+		cout << "2) Ha Long\n";
+		cout << "3) Ha Noi\n";
+		cin >> answer1;
+		if (answer1 == 1) {
+			cout << "Do you really think so? Because that's just not right, man! Give it another shot! This one is a breeze!\n";
+		}
+		else if (answer1 == 2) {
+			cout << "Nahh! That is my hometown! Please try again!\n";
+		}
+		else if (answer1 == 3) {
+			cout << "You hit the nail on the head!\n";
+			score++;
+			break;
+		}
+		else {
+			cout << "Invalid data input! Please choose 1,2,3!\n";
+		}
+	}
+	while (true) {
+		cout << "Q2) What is the best way to drink Vietnamese coffee?\n";
+		cout << "1) Like a normal person, just sit it up\n";
+		cout << "2) Mix it 100 times like a scientist\n";
+		cout << "3) Cry because it's so strong and keeps you awake for 3 days\n";
+		cin >> answer2;
+		if (answer2 == 1) {
+			cout << "Nope! You're not a coffee lover, are you? Try again!\n";
+		}
+		else if (answer2 == 2) {
+			cout << "Come on! You're just drinking coffee, not making a potion! Try again!\n";
+		}
+		else if (answer2 == 3) {
+			cout << "You got it! Vietnamese coffee is no joke!\n";
+			score++;
+			break;
+		}
+		else {
+			cout << "Invalid data input! Please choose 1,2,3!\n";
+		}
+	}
+	while (true) {
+		cout << "Q3) What happens if you try to eat Pho with a fork instead of chopsticks?\n";
+		cout << "1) You will be judged by all the locals\n";
+		cout << "2) The chopsticks police will arrest you\n";
+		cout << "3) Nothing, but you might miss out on the full experience\n";
+		cin >> answer3;
+		if (answer3 == 1) {
+			cout << "Nah! Vietnamese people are friendly enough to let you eat Pho with a fork! Try again!\n";
+		}
+		else if (answer3 == 2) {
+			cout << "Who can be arrested for eating Pho with a fork? Try again!\n";
+		}
+		else if (answer3 == 3) {
+			cout << "You got it! But you should try to use chopsticks next time!\n";
+			score++;
+			break;
+		}
+		else {
+			cout << "Invalid data input! Please choose 1,2,3!\n";
+		}
+	}
+	cout << "🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉\n";
+	cout << "You have completed the quiz! Let's see how you did...\n";
+	cout << "Your final score is: " << score << "/3\n";
+	if (score == 3) {
+		cout << "You are a *Vietnam Master*! 🏆🎉🎊\n";
+	}
+	else {
+		cout << "You need to open your Traveloka app and book a flight to Vietnam right now! 🛫🇻🇳\n";
+	}
+	return 0;
+}
