@@ -1,0 +1,100 @@
+
+## Why This Project?
+I care deeply about animal welfare and created this project to practice C++ while reflecting my passion for helping rescue animals—something that means a lot to me.
+
+## Author
+Jane Duong 
+//
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+struct Animal {
+    std::string name;
+    std::string type;
+    int age;
+    bool adopted;
+};
+
+void addAnimal(std::vector<Animal>& animals) {
+    Animal a;
+    std::cout << "Enter animal name: ";
+    std::cin >> a.name;
+    std::cout << "Enter animal type (dog/cat/etc.): ";
+    std::cin >> a.type;
+    std::cout << "Enter animal age: ";
+    std::cin >> a.age;
+    a.adopted = false;
+    animals.push_back(a);
+    std::cout << "Animal added successfully!\n";
+}
+
+void listAnimals(const std::vector<Animal>& animals) {
+    std::cout << "\nCurrent Animals in Shelter:\n";
+    if (animals.empty()) {
+        std::cout << "No animals available.\n";
+        return;
+    }
+    for (const auto& a : animals) {
+        std::cout << a.name << " | " << a.type << " | Age: " << a.age
+                  << " | Status: " << (a.adopted ? "Adopted" : "Available") << std::endl;
+    }
+}
+
+void adoptAnimal(std::vector<Animal>& animals) {
+    std::string name;
+    std::cout << "Enter the name of the animal to mark as adopted: ";
+    std::cin >> name;
+    auto it = std::find_if(animals.begin(), animals.end(), [&](const Animal& a) {
+        return a.name == name && !a.adopted;
+    });
+    if (it != animals.end()) {
+        it->adopted = true;
+        std::cout << name << " has been marked as adopted.\n";
+    } else {
+        std::cout << "Animal not found or already adopted.\n";
+    }
+}
+
+void searchAnimals(const std::vector<Animal>& animals) {
+    std::string keyword;
+    std::cout << "Enter animal name or type to search: ";
+    std::cin >> keyword;
+    bool found = false;
+    for (const auto& a : animals) {
+        if (a.name == keyword || a.type == keyword) {
+            std::cout << a.name << " | " << a.type << " | Age: " << a.age
+                      << " | Status: " << (a.adopted ? "Adopted" : "Available") << std::endl;
+            found = true;
+        }
+    }
+    if (!found) {
+        std::cout << "No animals found matching the search.\n";
+    }
+}
+
+int main() {
+    std::vector<Animal> animals;
+    int choice;
+    do {
+        std::cout << "\n=== Animal Shelter Management ===\n";
+        std::cout << "1. Add Animal\n";
+        std::cout << "2. List Animals\n";
+        std::cout << "3. Adopt Animal\n";
+        std::cout << "4. Search Animal\n";
+        std::cout << "0. Exit\n";
+        std::cout << "Enter your choice: ";
+        std::cin >> choice;
+        switch (choice) {
+            case 1: addAnimal(animals); break;
+            case 2: listAnimals(animals); break;
+            case 3: adoptAnimal(animals); break;
+            case 4: searchAnimals(animals); break;
+            case 0: std::cout << "Exiting program.\n"; break;
+            default: std::cout << "Invalid choice. Try again.\n"; break;
+        }
+    } while (choice != 0);
+    return 0;
+}
